@@ -8,7 +8,7 @@ def home(request):
     return render(request, 'base/home.html', {})
 
 def marvel_home(request):
-    ''' Render the results of a query '''
+    ''' Search Marvel characters or render the results of a query '''
 
     if request.method == 'POST':
         query = request.POST['character']
