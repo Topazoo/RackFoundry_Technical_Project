@@ -29,8 +29,12 @@
 <!-- Hidden modal to expand on click -->
 <div class="char-modal-bg">
     <div class="char-modal-ct">
-        <span class="close" onclick="modal_close()">&times;</span>
-        <p>TEST</p>
+        <span class="close myclose" onclick="modal_close()">&times;</span>
+        <div class="char-modal-ct-inner">
+            <img class="char-image" id="char-image">
+            <p id="char-name"></p>
+            <p id="char-desc"></p>
+        </div>
     </div>
 </div>
 

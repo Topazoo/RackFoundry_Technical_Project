@@ -51,4 +51,23 @@ body {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    overflow: hidden;
+}
+
+.char-image {
+    max-height: 400px;
+    float: right;
+}
+
+.cl-padding {
+    padding-bottom: 5px;
+}
+
+.myclose {
+    margin-right: -7px;
+    line-height: .1px;
+}
+
+.char-modal-ct-inner {
+    padding-top: 25px;
 }
