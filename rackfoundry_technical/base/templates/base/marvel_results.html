@@ -3,19 +3,24 @@
 {% block content %}
 <br>
 
+<!-- For every query result -->
 <h1>Search Results for: {{query}}</h1>
 
 <br>
 
+<!-- Display image thumbnail and name -->
 {% for result in results %}
-
-<div class="row-img">
+<div class="col-img">
     {% with result.thumbnail.extension as ext %}
-    <img src="{{result.thumbnail.path|img_url:ext }}">
+    <center>
+        <img class="char-img" src="{{result.thumbnail.path|img_url:ext }}">
+        <p class="char-text"> {{result.name}}</p>
+    </center>
     {% endwith %}
-    <p> {{result.name}}</p>
+
 </div>
 
+<!-- If no results, alert the user -->
 {% empty %}
 <p>Sorry, no results found.</p>
 
