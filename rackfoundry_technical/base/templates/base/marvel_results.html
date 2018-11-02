@@ -1,14 +1,24 @@
 {% extends 'base/base.html' %}
+{% load marvel_tags %}
 {% block content %}
 <br>
 
 <h1>Search Results for: {{query}}</h1>
+
 <br>
+
 {% for result in results %}
-<p> {{result.name }}</p>
-<br>
+
+<div class="row-img">
+    {% with result.thumbnail.extension as ext %}
+    <img src="{{result.thumbnail.path|img_url:ext }}">
+    {% endwith %}
+    <p> {{result.name}}</p>
+</div>
+
 {% empty %}
 <p>Sorry, no results found.</p>
+
 {% endfor %}
 
 {% endblock %}
