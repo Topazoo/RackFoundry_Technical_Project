@@ -2,5 +2,15 @@
 {% block content %}
 <br>
 
-<h1>Marvel Home Placeholder</h1>
+<h1>Marvel Home Page</h1>
+
+<br>
+
+<form action="/marvel/" method="post">
+    {% csrf_token %}
+    <label for="char_search">Search for a character: </label>
+    <input id="char_search" type="text" name="character">
+    <input type="submit" value="Submit">
+</form>
+
 {% endblock %}

@@ -8,22 +8,26 @@ def home(request):
     return render(request, 'base/home.html', {})
 
 def marvel_home(request):
-    ''' Render the marvel homepage '''
+    ''' Render the results of a query '''
 
-    result_json = {}
-    query_string = create_query_string("cable") #TODO Get from form
+    if request.method == 'POST':
+        query = request.POST['character']
+        query_string = create_query_string(query) #TODO - Allow for offset for pagination
 
-    try:
-        query_response = urllib2.urlopen(query_string)
-        result_json = json.load(query_response)
+        try:
+            query_response = urllib2.urlopen(query_string)
+            result_json = json.load(query_response)
+            return render(request, 'base/marvel_results.html', {"request":request, "query":query,
+                                                             "results":result_json["data"]["results"]})
 
-    except urllib2.HTTPError as error:
-        error_message = error.read()
-        print error_message
+        except urllib2.HTTPError as error:
+            error_message = error.read()
+            print error_message  # TODO - Remove and render error on page if not successful
+            return render(request, 'base/marvel_results.html', {"request":request, "query":query,
+                                                                "error":error_message})
 
-    print result_json
+    return render(request, 'base/marvel_home.html', {})
 
-    return render(request, 'base/marvel_home.html', {}) #TODO - Render error on page if not successful
 
 def tickets_home(request):
     ''' Render the tickets homepage '''

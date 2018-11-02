@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<br>
+
+<h1>Search Results for: {{query}}</h1>
+<br>
+{% for result in results %}
+<p> {{result.name }}</p>
+<br>
+{% empty %}
+<p>Sorry, no results found.</p>
+{% endfor %}
+
+{% endblock %}
