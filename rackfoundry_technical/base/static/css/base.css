@@ -26,4 +26,9 @@ body {
     position: absolute;
     text-align: center;
     width: 230px;
+    padding-top: 5px;
+}
+
+.cont-main{
+    margin-left: 65px;
 }
