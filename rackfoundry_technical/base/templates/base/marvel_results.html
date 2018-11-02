@@ -13,7 +13,7 @@
 <div class="col-img">
     {% with result.thumbnail.extension as ext %}
     <center>
-        <img class="char-img" src="{{result.thumbnail.path|img_url:ext }}" onclick="char_click()">
+        <img class="char-img" src="{{result.thumbnail.path|img_url:ext }}" onclick="char_click({{result|to_json}})">
         <p class="char-text"> {{result.name}}</p>
     </center>
     {% endwith %}

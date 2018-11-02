@@ -1,4 +1,4 @@
-function char_click() {
+function char_click(char_json) {
     if ($(".char-modal-bg").is(":hidden"))
     {
         $(".char-modal-bg").css("display", "block");
@@ -7,6 +7,9 @@ function char_click() {
     {
         $(".char-modal-bg").hide();
     }
+
+    var parsed_json = JSON.stringify(char_json);
+    window.alert(parsed_json);
     return false;
 }
 
