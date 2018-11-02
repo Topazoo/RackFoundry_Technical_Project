@@ -30,14 +30,14 @@ The server can be run using <i>manage.py</i>. Note that the server requires a co
  ```
 $ ./manage.py runserver
 System check identified no issues (0 silenced).
-August 10, 2018 - 05:02:18
-Django version 1.9.13, using settings 'portfolio.settings'
+November 02, 2018 - 02:08:14
+Django version 1.9.13, using settings 'rackfoundry_technical.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
  ```
 
 ### Creating the configuration file:
-This file should be placed in the <b>portfolio/</b> directory (the directory that contains 
+This file should be placed in the <b>rackfoundry_technical/</b> directory (the directory that contains 
 <i>manage.py</i>).
 
 <i>server_config.ini</i>
@@ -45,8 +45,11 @@ This file should be placed in the <b>portfolio/</b> directory (the directory tha
 secret_key=KEY
 debug=TRUE/FALSE
 hosts=HOSTS
+marvel_public=PUBLIC_KEY
+marvel_private=PRIVATE_KEY
 ```
-Where the right-hand value is your Django secret key, debug setting, and comma separated host URLs (e.g. 127.0.0.1,127.0.0.2) respectively. 
+Where the right-hand value is your Django secret key, debug setting, comma separated host URLs (e.g. 127.0.0.1,127.0.0.2),
+ marvel API public key, and Marvel API private key respectively. 
 
 
 ## Requirements:
