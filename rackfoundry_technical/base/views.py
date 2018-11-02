@@ -17,18 +17,18 @@ def marvel_home(request):
         try:
             query_response = urllib2.urlopen(query_string)
             result_json = json.load(query_response)
-            return render(request, 'base/marvel_results.html', {"request":request, "query":query,
+            return render(request, 'marvel/marvel_results.html', {"request":request, "query":query,
                                                              "results":result_json["data"]["results"]})
 
         except urllib2.HTTPError as error:
             error_message = error.read()
             print error_message  # TODO - Remove and render error on page if not successful
-            return render(request, 'base/marvel_results.html', {"request":request, "query":query,
+            return render(request, 'marvel_results.html', {"request":request, "query":query,
                                                                 "error":error_message})
 
-    return render(request, 'base/marvel_home.html', {})
+    return render(request, 'marvel/marvel_home.html', {})
 
 
 def tickets_home(request):
     ''' Render the tickets homepage '''
-    return render(request, 'base/tickets_home.html', {})
+    return render(request, 'tickets/tickets_home.html', {})
