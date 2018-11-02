@@ -27,16 +27,17 @@
 {% endfor %}
 
 <!-- Hidden modal to expand on click -->
+<!-- Fields filled via JS -->
 <div class="char-modal-bg">
     <div class="char-modal-ct">
         <span class="close myclose" onclick="modal_close()">&times;</span>
         <div class="char-modal-ct-inner">
             <img class="char-image" id="char-image">
-            <p id="char-name"></p>
+            <div id="char-name"><p></p></div>
             <p id="char-desc"></p>
             <div id="char-comics"><ul></ul></div>
-            <div id="char-series"></div>
-            <div id="char-stories"></div>
+            <div id="char-series"><ul></ul></div>
+            <div id="char-stories"><ul></ul></div>
         </div>
     </div>
 </div>
