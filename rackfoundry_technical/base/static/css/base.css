@@ -53,6 +53,7 @@ body {
     width: 80%;
     overflow: hidden;
     max-width: 900px;
+    min-width: 400px;
 }
 
 .char-info-image {
@@ -114,6 +115,10 @@ body {
 	margin-left: 10px;
 }
 
+.btn-details {
+    margin-top: 10px;
+}
+
 @media (max-width:320px){
     .char-image-cont {
         max-height: 14em;
@@ -126,16 +131,13 @@ body {
         max-height: 14em;
         max-width: 120%;
     }
+
 }
 
 @media (min-width:600px){
     .char-image-cont {
         max-height: 100%;
         max-width: 120%;
-    }
-
-    .char-info-image {
-        padding-right: 30px;
     }
 }
 
