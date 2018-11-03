@@ -134,6 +134,7 @@ function modal_close() {
     {
         $(".char-modal-bg").hide();
         $(".info-drop").hide()
+        document.getElementById("rot-caret").classList.remove("change");
     }
 
     return false;
@@ -155,8 +156,15 @@ function infoClick() {
     /* Displays dropdown of detailed information in modal */
 
     if ($(".info-drop").is(":hidden"))
+    {
         $(".info-drop").css("display", "block");
+        document.getElementById("rot-caret").classList.add("change");
+    }
     else
+    {
         $(".info-drop").hide()
+        document.getElementById("rot-caret").classList.remove("change");
+    }
+
 
 }

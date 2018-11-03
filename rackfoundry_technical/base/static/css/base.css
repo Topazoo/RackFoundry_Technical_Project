@@ -52,6 +52,7 @@ body {
     border: 1px solid #888;
     width: 80%;
     overflow: hidden;
+    max-width: 900px;
 }
 
 .char-info-image {
@@ -101,6 +102,16 @@ body {
 
 .info-drop {
     display: none;
+}
+
+.caret.change{
+	-webkit-transform:rotate(180deg);
+	transform:rotate(180deg);
+}
+
+#rot-caret{
+	transition:0.3s;
+	margin-left: 10px;
 }
 
 @media (max-width:320px){
