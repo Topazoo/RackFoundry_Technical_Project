@@ -1,16 +1,23 @@
 {% extends 'base/base.html' %}
 {% block content %}
-<br>
-
-<h1>Marvel Home Page</h1>
 
 <br>
+<br>
 
-<form action="/marvel/" method="post">
-    {% csrf_token %}
-    <label for="char_search">Search for a character: </label>
-    <input id="char_search" type="text" name="character">
-    <input type="submit" value="Submit">
+<h1>Marvel Character Search</h1>
+<div class="subtitle">
+    <h5>Finds characters that have names starting with the search term</h5>
+</div>
+
+<form class="subtitle" action="/marvel/" method="post">
+    <div class="form-group form-capped">
+        {% csrf_token %}
+        <label for="char-search">Search for a character: </label>
+        <input class="form-control" id="char-search" type="text" name="character">
+        <div class="btn-sub">
+            <input type="submit" value="Submit" onClick="return isEmpty()">
+        </div>
+    </div>
 </form>
 
 {% endblock %}

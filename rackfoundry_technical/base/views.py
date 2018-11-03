@@ -18,13 +18,12 @@ def marvel_home(request):
             query_response = urllib2.urlopen(query_string)
             result_json = json.load(query_response)
             return render(request, 'marvel/marvel_results.html', {"request":request, "query":query,
-                                                             "results":result_json["data"]["results"]})
+                                                                  "results":result_json["data"]["results"]})
 
         except urllib2.HTTPError as error:
-            error_message = error.read()
-            print error_message  # TODO - Remove and render error on page if not successful
-            return render(request, 'marvel_results.html', {"request":request, "query":query,
-                                                                "error":error_message})
+            error = json.load(error)
+            return render(request, 'marvel/marvel_error.html', {"request":request, "query":query,
+                                                           "error":error["status"]})
 
     return render(request, 'marvel/marvel_home.html', {})
 

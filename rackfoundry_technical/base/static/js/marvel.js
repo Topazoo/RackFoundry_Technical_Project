@@ -86,9 +86,7 @@ function build_modal(char_json) {
     } */ //TODO - Remove bc of irrelevant/incorrect wiki links
 
     /* Insert the character description */
-    if (char_json.description.trim().length === 0 )
-        document.getElementById("char-desc").innerHTML = "No Description.";
-    else
+    if (char_json.description.trim().length > 0 )
         document.getElementById("char-desc").innerHTML = char_json.description; //TODO - replace unicode
 
     /* Insert a list of comics */
@@ -136,3 +134,13 @@ function modal_close() {
 
 }
 
+function isEmpty() {
+    /* Checks if a form field is empty */
+
+    var val = document.getElementById("char-search").value;
+
+    if (val == "") {
+        alert("Please enter a search term");
+        return false;
+    }
+}

@@ -79,6 +79,23 @@ body {
     padding-top: 25px;
 }
 
+.btn-back {
+    padding-bottom: 20px;
+}
+
+.btn-sub {
+    padding-top: 20px;
+}
+
+.form-capped {
+    max-width: 300px;
+}
+
+.subtitle {
+    padding: 10px 0px 0px 20px;
+
+}
+
 @media (max-width:320px){
     .char-image-cont {
         max-height: 14em;

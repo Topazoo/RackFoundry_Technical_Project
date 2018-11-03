@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load marvel_tags %}
+{% block content %}
+<br>
+
+{% if request %}
+    <div class="btn-back">
+        <a href="/marvel/" class="btn btn-default">Back</a>
+    </div>
+{% endif %}
+
+<!-- For every query result -->
+<h1>Search Results for: {{query}}</h1>
+
+<br>
+
+<p>There was an error performing your search request:</p>
+<p>Error - {{error}}.</p>
+{% endblock %}
