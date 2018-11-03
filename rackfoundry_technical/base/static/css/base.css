@@ -55,9 +55,11 @@ body {
 }
 
 .char-info-image {
-    max-height: 80%;
-    max-width: 100%;
-    display: inline-block;
+    max-height: inherit;
+    max-width: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .cl-padding {
@@ -75,4 +77,9 @@ body {
 
 .char-info-cont {
     padding-top: 25px;
+}
+
+.char-image-cont {
+    max-height: 14em;
+    max-width: 120%
 }
