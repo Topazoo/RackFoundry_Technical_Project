@@ -99,6 +99,10 @@ body {
     text-align: center;
 }
 
+.info-drop {
+    display: none;
+}
+
 @media (max-width:320px){
     .char-image-cont {
         max-height: 14em;

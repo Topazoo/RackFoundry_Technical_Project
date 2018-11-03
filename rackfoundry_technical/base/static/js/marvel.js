@@ -131,7 +131,10 @@ function modal_close() {
     /* Close the modal on X button click */
 
     if ($(".char-modal-bg").is(":visible"))
+    {
         $(".char-modal-bg").hide();
+        $(".info-drop").hide()
+    }
 
     return false;
 
@@ -146,4 +149,14 @@ function isEmpty() {
         alert("Please enter a search term");
         return false;
     }
+}
+
+function infoClick() {
+    /* Displays dropdown of detailed information in modal */
+
+    if ($(".info-drop").is(":hidden"))
+        $(".info-drop").css("display", "block");
+    else
+        $(".info-drop").hide()
+
 }
