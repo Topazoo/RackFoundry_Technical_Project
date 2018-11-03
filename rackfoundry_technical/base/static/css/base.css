@@ -93,7 +93,10 @@ body {
 
 .subtitle {
     padding: 10px 0px 0px 20px;
+}
 
+.char-info {
+    text-align: center;
 }
 
 @media (max-width:320px){
