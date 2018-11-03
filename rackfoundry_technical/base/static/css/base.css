@@ -119,6 +119,15 @@ body {
     margin-top: 10px;
 }
 
+.back-btn {
+    padding-right: 6px;
+}
+
+.btn {
+    outline: none;
+    border: 1px solid #D3D3D3;
+}
+
 @media (max-width:320px){
     .char-image-cont {
         max-height: 14em;
