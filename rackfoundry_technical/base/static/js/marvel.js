@@ -72,7 +72,7 @@ function build_modal(char_json) {
     document.getElementById("char-image").setAttributeNode(att);
 
     /* Insert the character name */
-    var name = document.createElement('p');
+    var name = document.createElement('h2');
     name.innerHTML = char_json.name;
     document.getElementById("char-name").replaceChild(name, document.getElementById("char-name").childNodes[0]);
 
