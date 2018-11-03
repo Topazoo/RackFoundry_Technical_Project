@@ -54,9 +54,10 @@ body {
     overflow: hidden;
 }
 
-.char-image {
-    max-height: 400px;
-    float: right;
+.char-info-image {
+    max-height: 80%;
+    max-width: 100%;
+    display: inline-block;
 }
 
 .cl-padding {
@@ -69,5 +70,9 @@ body {
 }
 
 .char-modal-ct-inner {
+    padding-top: 25px;
+}
+
+.char-info-cont {
     padding-top: 25px;
 }

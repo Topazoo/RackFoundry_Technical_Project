@@ -87,9 +87,9 @@ function build_modal(char_json) {
 
     /* Insert the character description */
     if (char_json.description.trim().length === 0 )
-        document.getElementById("char-desc").innerHTML = "Description: None";
+        document.getElementById("char-desc").innerHTML = "No Description.";
     else
-        document.getElementById("char-desc").innerHTML = "Description: " + char_json.description; //TODO - replace unicode
+        document.getElementById("char-desc").innerHTML = char_json.description; //TODO - replace unicode
 
     /* Insert a list of comics */
     var comic_list = make_list(char_json["comics"]["items"], "No comic appearances."); //TODO - Cap at 11 and allow for pagination
