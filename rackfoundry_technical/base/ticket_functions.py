@@ -19,6 +19,9 @@ def validate_ticket(ticket):
 
     # If multiple chunks, ensure first is "Ticket"
     if ticket_chunks[0].title() != "Ticket":
+        # Check for lack of space between entered fields
+        if ticket_chunks[0][:6:].title() == "Ticket":
+            return -1
         return -2
 
     # If valid ID but no space between extra info
