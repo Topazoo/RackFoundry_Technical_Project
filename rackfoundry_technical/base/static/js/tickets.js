@@ -32,7 +32,7 @@ $(document).ready(function() {
     $("#post-ticket").click(function() {
 		token = String(getCookie('csrftoken'));
 
-		if (!isNotEmpty('Please enter a ticket'))
+		if (!isNotEmpty('Please enter the required ticket information'))
 		    return false;
 
         var ticket = document.getElementById("form-sub").value;
@@ -40,7 +40,7 @@ $(document).ready(function() {
         /* Send AJAX POST request */
 		$.ajax({
 				"type": "POST",
-				"dataType": "json",
+				"dataType": "text",
 				"url": 'receive/',
 				"data": {'csrfmiddlewaretoken': token, 'ticket':ticket},
                 /* Message on success */
@@ -50,7 +50,7 @@ $(document).ready(function() {
 
                 /* Message on failure */
 				error: function(response) {
-				    alert("Failed to submit ticket - An error occurred.")
+				    alert(response.responseText)
 				},
         });
 

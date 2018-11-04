@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from marvel_functions import create_query_string
+from ticket_functions import validate_ticket, throw_ticket_error
 from django.http import JsonResponse, HttpResponse
 import urllib2
 import json
@@ -41,10 +42,14 @@ def receive_ticket(request):
     if request.method == 'POST':
         # Return success response to AJAX request
 
-        print request.POST
+        # Grab and validate ticket
+        ticket = request.POST["ticket"]
+        valid_code = validate_ticket(ticket)
+
+        if valid_code < 0:
+            return throw_ticket_error(valid_code)
 
         return JsonResponse({'code': 'success'})
 
     # Return failure response to AJAX request
-    response = HttpResponse('HTTP Error 405: No POST data received', status=405)
-    return response
+    return throw_ticket_error(0)
