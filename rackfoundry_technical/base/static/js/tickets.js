@@ -39,12 +39,17 @@ $(document).ready(function() {
 		$.ajax({
 				"type": "POST",
 				"dataType": "json",
-				"url": '/receive_ticket',
+				"url": 'receive',
 				"data": {'csrfmiddlewaretoken': token},
                 /* Message on success */
-                "success": function(response) {},
+                success: function(response) {
+                    alert("Ticket submitted successfully!")
+                },
+
                 /* Message on failure */
-				"error": function(response) {},
+				error: function(response) {
+				    alert("Failed to submit ticket - An error occurred.")
+				},
         });
 
         return false;

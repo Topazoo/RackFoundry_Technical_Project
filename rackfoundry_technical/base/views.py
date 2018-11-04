@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from marvel_functions import create_query_string
+from django.http import JsonResponse, HttpResponse
 import urllib2
 import json
 
 def home(request):
     ''' Render the main homepage '''
+
     return render(request, 'base/home.html', {})
 
 def marvel_home(request):
@@ -30,4 +32,19 @@ def marvel_home(request):
 
 def tickets_home(request):
     ''' Render the tickets homepage '''
+
     return render(request, 'tickets/tickets_home.html', {})
+
+
+def receive_ticket(request):
+    ''' Receive a ticket via POST request '''
+
+    if request.method == 'POST':
+        # Return success response to AJAX request
+        return JsonResponse({'code': 'success'})
+
+
+    # Return failure response to AJAX request
+    response = HttpResponse('No POST data received', status=401)
+    response['Content-Length'] = len(response.content)
+    return response
