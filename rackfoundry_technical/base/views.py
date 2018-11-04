@@ -35,7 +35,6 @@ def tickets_home(request):
 
     return render(request, 'tickets/tickets_home.html', {})
 
-
 def receive_ticket(request):
     ''' Receive a ticket via POST request '''
 
@@ -43,8 +42,6 @@ def receive_ticket(request):
         # Return success response to AJAX request
         return JsonResponse({'code': 'success'})
 
-
     # Return failure response to AJAX request
-    response = HttpResponse('No POST data received', status=401)
-    response['Content-Length'] = len(response.content)
+    response = HttpResponse('Error 401: No POST data received', status=401)
     return response
