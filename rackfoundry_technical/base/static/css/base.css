@@ -84,7 +84,7 @@ body {
 }
 
 .btn-back {
-    padding-bottom: 20px;
+    display: inline-block;
 }
 
 .btn-sub {
@@ -100,7 +100,16 @@ body {
 }
 
 .subtitle {
-    padding: 10px 0px 0px 20px;
+    padding: 10px 0px 0px 200px;
+}
+
+.sub-subtitle {
+    padding-top: 5px;
+    padding-left: 30px;
+}
+
+.title {
+    padding-left: 170px;
 }
 
 .char-info {
@@ -140,6 +149,19 @@ body {
 
 .srch-res {
     text-align: center;
+    display: block;
+}
+
+.next-cont {
+    display: inline-block;
+}
+
+.btn-next {
+    margin-left: 40px;
+}
+
+.next-btn {
+    padding-left: 6px;
 }
 
 @media (max-width:320px){

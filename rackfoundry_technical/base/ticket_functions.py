@@ -86,7 +86,7 @@ def throw_ticket_error(code):
 
     if code == -7:
         return HttpResponse('Error: Invalid priority level.', status=400)
-    
+
     if code == -8:
         return HttpResponse('Error: Ticket cannot contain extra information.', status=400)
 

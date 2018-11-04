@@ -2,16 +2,24 @@
 {% block content %}
 
 <br>
+
+<div class="btn-back">
+    <button class="btn btn-default" onclick="goBack()">
+        <span class="glyphicon glyphicon-arrow-left back-btn"></span>Back
+    </button>
+</div>
+
+<br>
 <br>
 
-<h1>Support Ticket API</h1>
+<h1 class="title">Support Ticket API</h1>
 <div class="subtitle">
     <h5>Stores, validates and retrieves support tickets</h5>
     <br>
     <h6>Tickets must be submitted in the format <i>“Ticket &lt;ticket_id&gt; &lt;team_name&gt; &lt;priority_level&gt;"</i></h6>
-    <h6 class="subtitle"><i>&lt;ticket_id&gt;</i> - Ticket ID in the form of XXX-XXX, where each X represents a number</h6>
-    <h6 class="subtitle"><i>&lt;team_name&gt;</i> - Valid teams are: Engineering, Sales and Marketing</h6>
-    <h6 class="subtitle"><i>&lt;priority_level&gt;</i> - Valid priority levels are Critical, Important, Normal and Low</h6>
+    <h6 class="sub-subtitle"><i>&lt;ticket_id&gt;</i> - Ticket ID in the form of XXX-XXX, where each X represents a number</h6>
+    <h6 class="sub-subtitle"><i>&lt;team_name&gt;</i> - Valid teams are: Engineering, Sales and Marketing</h6>
+    <h6 class="sub-subtitle"><i>&lt;priority_level&gt;</i> - Valid priority levels are Critical, Important, Normal and Low</h6>
 </div>
 
 <br>

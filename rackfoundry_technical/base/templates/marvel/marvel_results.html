@@ -3,14 +3,16 @@
 {% block content %}
 <br>
 
-{% if request %}
-    <div class="btn-back">
-        <a href="/marvel/" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left back-btn"></span>Back</a>
-    </div>
-{% endif %}
+<div class="btn-back">
+    <button class="btn btn-default" onclick="goBack()">
+        <span class="glyphicon glyphicon-arrow-left back-btn"></span>Back
+    </button>
+</div>
 
 <!-- For every query result -->
-<h1 class="srch-res">Search Results for: {{query}}</h1>
+<span class="srch-res">
+    <h1 class="srch-res">Search Results for: {{query}}</h1>
+</span>
 
 <br>
 
@@ -29,6 +31,21 @@
 {% empty %}
     <p>Sorry, no results found.</p>
 {% endfor %}
+
+{% if offset != "None" %}
+<div class="next-cont">
+    <form action="/marvel/" method="post">
+        {% csrf_token %}
+        <input type="hidden" id="form-sub" name="character" value="{{query}}">
+        <input type="hidden" id="offset" name="offset" value="{{offset}}">
+        <div class="btn-next">
+            <button class="btn btn-default" type="submit" value="Next">Next
+                <span class="glyphicon glyphicon-arrow-right next-btn"></span>
+            </button>
+        </div>
+    </form>
+</div>
+{% endif %}
 
 <!-- Hidden modal to expand on click -->
 <!-- Fields filled via JS -->

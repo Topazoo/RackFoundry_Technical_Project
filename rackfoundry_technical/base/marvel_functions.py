@@ -32,15 +32,16 @@ def read_ini():
 
     return ini_dict
 
-def create_query_string(query):
+def create_query_string(query, offset):
     ''' Create a Marvel API character query string
-        @query - The string to search for characters with '''
+        @query - The string to search for characters with
+        @offset - The number of results to exclude '''
 
     # Get Marvel API keys
     API_keys = read_ini()
 
     # URL to be formatted
-    url_template = "http://gateway.marvel.com/v1/public/characters?nameStartsWith={}&ts={}&apikey={}&hash={}"
+    url_template = "http://gateway.marvel.com/v1/public/characters?nameStartsWith={}&offset={}&ts={}&apikey={}&hash={}"
 
     # Create timestamp
     timestamp = datetime.datetime.now().strftime("%x-%X")
@@ -49,7 +50,7 @@ def create_query_string(query):
     md5_hash = hashlib.md5(timestamp + API_keys["marvel_private"] + API_keys["marvel_public"]).hexdigest()
 
     # Build query string using template
-    full_query = url_template.format(query, timestamp, API_keys["marvel_public"], md5_hash)
+    full_query = url_template.format(query, offset, timestamp, API_keys["marvel_public"], md5_hash)
 
     return full_query
 

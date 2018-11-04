@@ -19,15 +19,23 @@ def marvel_home(request):
     if request.method == 'POST':
         # Get query from POST request
         query = request.POST['character']
+        offset = int(request.POST['offset'])
         # Build Marvel API query string
-        query_string = create_query_string(query) #TODO - Allow for offset for pagination
+        query_string = create_query_string(query, offset)
 
         # Attempt to access Marvel API and render results
         try:
             query_response = urllib2.urlopen(query_string)
             result_json = json.load(query_response)
+            # Calculate the next offset based on the current # of characters returned
+            next_offset = offset + result_json["data"]["count"]
+            # If no more characters, no next offset
+            if next_offset >= result_json["data"]["total"]:
+                next_offset = "None"
+
             return render(request, 'marvel/marvel_results.html', {"request":request, "query":query,
-                                                                  "results":result_json["data"]["results"]})
+                                                                  "results":result_json["data"]["results"],
+                                                                  "offset":next_offset})
 
         except urllib2.HTTPError as error:
             error = json.load(error)

@@ -154,6 +154,8 @@ function infoClick() {
         $(".info-drop").hide()
         document.getElementById("rot-caret").classList.remove("change");
     }
+}
 
-
+function goBack() {
+    window.history.back();
 }
