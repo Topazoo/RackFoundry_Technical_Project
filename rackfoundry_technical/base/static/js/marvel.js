@@ -141,17 +141,6 @@ function modal_close() {
 
 }
 
-function isEmpty() {
-    /* Checks if a form field is empty */
-
-    var val = document.getElementById("char-search").value;
-
-    if (val == "") {
-        alert("Please enter a search term");
-        return false;
-    }
-}
-
 function infoClick() {
     /* Displays dropdown of detailed information in modal */
 

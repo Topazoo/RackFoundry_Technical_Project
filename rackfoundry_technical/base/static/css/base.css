@@ -95,6 +95,10 @@ body {
     max-width: 300px;
 }
 
+.form-capped-wide {
+    max-width: 400px;
+}
+
 .subtitle {
     padding: 10px 0px 0px 20px;
 }

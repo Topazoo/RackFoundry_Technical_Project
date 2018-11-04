@@ -12,10 +12,10 @@
 <form class="subtitle" action="/marvel/" method="post">
     <div class="form-group form-capped">
         {% csrf_token %}
-        <label for="char-search">Search for a character: </label>
-        <input class="form-control" id="char-search" type="text" name="character">
+        <label for="form-sub">Search for a character: </label>
+        <input class="form-control" id="form-sub" type="text" name="character">
         <div class="btn-sub">
-            <input class="btn btn-default" type="submit" value="Submit" onClick="return isEmpty()">
+            <input class="btn btn-default" type="submit" value="Submit" onClick="return isEmpty('Please enter a search term')">
         </div>
     </div>
 </form>
