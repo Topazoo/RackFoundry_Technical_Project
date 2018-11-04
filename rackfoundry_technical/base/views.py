@@ -43,5 +43,5 @@ def receive_ticket(request):
         return JsonResponse({'code': 'success'})
 
     # Return failure response to AJAX request
-    response = HttpResponse('Error 401: No POST data received', status=401)
+    response = HttpResponse('HTTP Error 405: No POST data received', status=405)
     return response

@@ -39,7 +39,7 @@ $(document).ready(function() {
 		$.ajax({
 				"type": "POST",
 				"dataType": "json",
-				"url": 'receive',
+				"url": 'receive/',
 				"data": {'csrfmiddlewaretoken': token},
                 /* Message on success */
                 success: function(response) {
