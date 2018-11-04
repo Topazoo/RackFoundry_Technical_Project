@@ -40,6 +40,9 @@ def receive_ticket(request):
 
     if request.method == 'POST':
         # Return success response to AJAX request
+
+        print request.POST
+
         return JsonResponse({'code': 'success'})
 
     # Return failure response to AJAX request

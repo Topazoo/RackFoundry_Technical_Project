@@ -35,12 +35,14 @@ $(document).ready(function() {
 		if (!isNotEmpty('Please enter a ticket'))
 		    return false;
 
+        var ticket = document.getElementById("form-sub").value;
+
         /* Send AJAX POST request */
 		$.ajax({
 				"type": "POST",
 				"dataType": "json",
 				"url": 'receive/',
-				"data": {'csrfmiddlewaretoken': token},
+				"data": {'csrfmiddlewaretoken': token, 'ticket':ticket},
                 /* Message on success */
                 success: function(response) {
                     alert("Ticket submitted successfully!")
