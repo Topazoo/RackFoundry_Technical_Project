@@ -63,3 +63,21 @@ def receive_ticket(request):
 
     # Return failure response to AJAX request
     return throw_ticket_error(0)
+
+
+def get_ticket_id(request, ticket):
+    ''' Get a ticket by ID '''
+
+    return JsonResponse({'ticket': ticket})
+
+
+def get_tickets_team(request, team):
+    ''' Get a tickets by team '''
+
+    return JsonResponse({'team': team})
+
+
+def get_tickets_priority(request, priority):
+    ''' Get a ticket by priority '''
+
+    return JsonResponse({'priority': priority})
