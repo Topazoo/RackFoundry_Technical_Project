@@ -89,7 +89,20 @@ def get_ticket_id(request, ticket):
 def get_tickets_team(request, team):
     ''' Get a tickets by team '''
 
-    return JsonResponse({'team': team})
+    response = OrderedDict()
+
+    # Attempt to find tickets in database
+    db_tickets = Ticket.objects.filter(team=team.title())
+
+    # If found, build and enter information in JSON format
+    if db_tickets:
+        response['code'] = 200
+        response['tickets'] = [create_ticket_JSON(ticket) for ticket in db_tickets]
+    else:
+        response['code'] = 404
+        response['tickets'] = []
+
+    return JsonResponse(response)
 
 
 def get_tickets_priority(request, priority):
