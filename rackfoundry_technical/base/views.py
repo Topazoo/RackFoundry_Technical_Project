@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from marvel_functions import create_query_string
-from ticket_functions import validate_ticket, throw_ticket_error, save_ticket
+from ticket_functions import validate_ticket, throw_ticket_error, save_ticket, create_ticket_JSON
 from django.http import JsonResponse
+from collections import OrderedDict
+from models import Ticket
 import urllib2
 import json
 
@@ -68,7 +70,20 @@ def receive_ticket(request):
 def get_ticket_id(request, ticket):
     ''' Get a ticket by ID '''
 
-    return JsonResponse({'ticket': ticket})
+    response = OrderedDict()
+
+    # Attempt to find ticket in database
+    db_ticket = Ticket.objects.filter(ticket_id=ticket)
+
+    # If found, build and enter information in JSON format
+    if db_ticket:
+        response['code'] = 200
+        response['ticket'] = create_ticket_JSON(db_ticket[0])
+    else:
+        response['code'] = 404
+        response['ticket'] = 'Not Found'
+
+    return JsonResponse(response)
 
 
 def get_tickets_team(request, team):

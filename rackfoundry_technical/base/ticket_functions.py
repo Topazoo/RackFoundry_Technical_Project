@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from models import Ticket
+from collections import OrderedDict
 import re
 
 def validate_ticket(ticket):
@@ -112,3 +113,15 @@ def save_ticket(ticket):
     new_ticket.save()
 
     return True
+
+
+def create_ticket_JSON(ticket):
+    ''' Create JSON representation of ticket '''
+
+    ticket_JSON = OrderedDict()
+
+    ticket_JSON['id'] = ticket.ticket_id
+    ticket_JSON['team'] = ticket.team
+    ticket_JSON['priority'] = ticket.priority
+
+    return ticket_JSON
