@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from models import Ticket
 import re
 
 def validate_ticket(ticket):
@@ -87,3 +88,27 @@ def throw_ticket_error(code):
                             ' (valid levels are Critical, Important, Normal and Low)', status=400)
     if code == -8:
         return HttpResponse('Error: Ticket cannot contain extra information', status=400)
+
+    if code == -9:
+        return HttpResponse('Error: A ticket with the given ID already exists. Please try another', status=409)
+
+
+def save_ticket(ticket):
+    ''' Save the ticket to the database '''
+
+    # Get relevant chunks of ticket
+    ticket_chunks = ticket.split()
+    ticket_id = ticket_chunks[1]
+    team = ticket_chunks[2].title()
+    priority = ticket_chunks[3].title()
+
+    # Check for existing ticket
+    existing_ticket = Ticket.objects.filter(ticket_id=ticket_id)
+    if existing_ticket:
+        return False
+
+    # Create and save ticket if it doesn't exist
+    new_ticket = Ticket(ticket_id=ticket_id, team=team, priority=priority)
+    new_ticket.save()
+
+    return True
