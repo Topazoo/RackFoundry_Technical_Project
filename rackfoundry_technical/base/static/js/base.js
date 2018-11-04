@@ -1,4 +1,4 @@
-function isEmpty(error_message) {
+function isNotEmpty(error_message) {
     /* Checks if a form field is empty */
 
     var val = document.getElementById("form-sub").value;
@@ -7,4 +7,6 @@ function isEmpty(error_message) {
         alert(error_message);
         return false;
     }
+
+    return true;
 }

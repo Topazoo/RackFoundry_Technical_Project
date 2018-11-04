@@ -9,7 +9,7 @@
     <h5>Stores, validates and retrieves support tickets</h5>
 </div>
 
-<form class="subtitle" action="/tickets/receive" method="post">
+<form class="subtitle">
     <div class="form-group">
         {% csrf_token %}
         <label for="form-sub">
@@ -18,7 +18,7 @@
         <div class="form-capped">
             <input class="form-control" id="form-sub" type="text" name="ticket" placeholder="Ticket XXX-XXX Engineering Critical">
             <div class="btn-sub">
-                <input class="btn btn-default" type="submit" value="Submit" onClick="return isEmpty('Please enter a ticket')">
+                <input class="btn btn-default" type="submit" value="Submit" id="post-ticket">
             </div>
         </div>
     </div>
