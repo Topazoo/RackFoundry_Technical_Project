@@ -79,14 +79,14 @@ def throw_ticket_error(code):
         return HttpResponse('Error: Ticket requires a team name (e.g. Sales).', status=400)
 
     if code == -5:
-        return HttpResponse('Error: Invalid team name (valid teams are Engineering, Sales and Marketing).', status=400)
+        return HttpResponse('Error: Invalid team name.', status=400)
 
     if code == -6:
         return HttpResponse('Error: Ticket requires a priority level (e.g. Normal).', status=400)
 
     if code == -7:
-        return HttpResponse('Error: Invalid priority level'
-                            ' (valid levels are Critical, Important, Normal and Low).', status=400)
+        return HttpResponse('Error: Invalid priority level.', status=400)
+    
     if code == -8:
         return HttpResponse('Error: Ticket cannot contain extra information.', status=400)
 

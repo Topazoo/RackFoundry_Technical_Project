@@ -7,13 +7,20 @@
 <h1>Support Ticket API</h1>
 <div class="subtitle">
     <h5>Stores, validates and retrieves support tickets</h5>
+    <br>
+    <h6>Tickets must be submitted in the format <i>“Ticket &lt;ticket_id&gt; &lt;team_name&gt; &lt;priority_level&gt;"</i></h6>
+    <h6 class="subtitle"><i>&lt;ticket_id&gt;</i> - Ticket ID in the form of XXX-XXX, where each X represents a number</h6>
+    <h6 class="subtitle"><i>&lt;team_name&gt;</i> - Valid teams are: Engineering, Sales and Marketing</h6>
+    <h6 class="subtitle"><i>&lt;priority_level&gt;</i> - Valid priority levels are Critical, Important, Normal and Low</h6>
 </div>
+
+<br>
 
 <form class="subtitle">
     <div class="form-group">
         {% csrf_token %}
         <label for="form-sub">
-            Submit a ticket in the format “Ticket &lt;XXX-XXX&gt; &lt;team_name&gt; &lt;priority_level&gt;”
+            Submit a ticket:
         </label>
         <div class="form-capped">
             <input class="form-control" id="form-sub" type="text" name="ticket" placeholder="Ticket 555-555 Engineering Critical">
