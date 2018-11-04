@@ -32,7 +32,7 @@ $(document).ready(function() {
     $("#post-ticket").click(function() {
 		token = String(getCookie('csrftoken'));
 
-		if (!isNotEmpty('Please enter the required ticket information'))
+		if (!isNotEmpty('Please enter the required ticket information.'))
 		    return false;
 
         var ticket = document.getElementById("form-sub").value;

@@ -61,37 +61,37 @@ def validate_ticket(ticket):
     return 1
 
 def throw_ticket_error(code):
-    ''' Throw the correct error if malformed ticket received '''
+    ''' Throw the correct error if malformed ticket string received '''
 
     if code == 0:
-        return HttpResponse('Error: No POST data received', status=405)
+        return HttpResponse('Error: No POST data received.', status=405)
 
     if code == -1:
-        return HttpResponse('Error: Ticket requires spaces between fields', status=400)
+        return HttpResponse('Error: Ticket requires spaces between fields.', status=400)
 
     if code == -2:
-        return HttpResponse('Error: Ticket must begin with \"Ticket\"', status=400)
+        return HttpResponse('Error: Ticket must begin with \"Ticket\".', status=400)
 
     if code == -3:
         return HttpResponse('Error: Ticket requires a six-digit ID separated with a hyphen '
-                            '(e.g. 555-555)', status=400)
+                            '(e.g. 555-555).', status=400)
     if code == -4:
-        return HttpResponse('Error: Ticket requires a team name (e.g. Sales)', status=400)
+        return HttpResponse('Error: Ticket requires a team name (e.g. Sales).', status=400)
 
     if code == -5:
-        return HttpResponse('Error: Invalid team name (valid teams are Engineering, Sales and Marketing)', status=400)
+        return HttpResponse('Error: Invalid team name (valid teams are Engineering, Sales and Marketing).', status=400)
 
     if code == -6:
-        return HttpResponse('Error: Ticket requires a priority level (e.g. Normal)', status=400)
+        return HttpResponse('Error: Ticket requires a priority level (e.g. Normal).', status=400)
 
     if code == -7:
         return HttpResponse('Error: Invalid priority level'
-                            ' (valid levels are Critical, Important, Normal and Low)', status=400)
+                            ' (valid levels are Critical, Important, Normal and Low).', status=400)
     if code == -8:
-        return HttpResponse('Error: Ticket cannot contain extra information', status=400)
+        return HttpResponse('Error: Ticket cannot contain extra information.', status=400)
 
     if code == -9:
-        return HttpResponse('Error: A ticket with the given ID already exists. Please try another', status=409)
+        return HttpResponse('Error: A ticket with that ID already exists. Please try another.', status=409)
 
 
 def save_ticket(ticket):
