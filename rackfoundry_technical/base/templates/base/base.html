@@ -27,6 +27,53 @@
     </div>
     <!-- Header -->
 
+    <!-- Navbar -->
+    <nav class="navbar navbar-light nav">
+        {% if request.path != '/' %}
+            <div class="navbar-brand nav-cont" onclick="goBack()">
+                <span class="glyphicon glyphicon-arrow-left back-btn"></span>
+                <div class="nav-btn">
+                    <p>Back</p>
+                </div>
+            </div>
+            <a class="navbar-brand nav-cont" href="/">
+                <span class="glyphicon glyphicon-home back-btn"></span>
+                <div class="nav-btn">
+                    <p>Home</p>
+                </div>
+            </a>
+        {% endif %}
+        {% if request.path != '/marvel/' %}
+            <a class="navbar-brand nav-cont" href="/marvel">
+                <span class="glyphicon glyphicon-search back-btn"></span>
+                <div class="nav-btn">
+                    <p>Marvel Search</p>
+                </div>
+            </a>
+        {% endif %}
+        {% if request.path != '/tickets/' %}
+            <a class="navbar-brand nav-cont" href="/tickets">
+                <span class="glyphicon glyphicon-transfer back-btn"></span>
+                <div class="nav-btn">
+                    <p>Ticket API</p>
+                </div>
+            </a>
+        {% endif %}
+        {% if offset and offset != "None" %}
+            <div class="navbar-brand nav-cont nav-next">
+                <form action="/marvel/" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" id="form-sub" name="character" value="{{query}}">
+                    <input type="hidden" id="offset" name="offset" value="{{offset}}">
+                    <input class="nav-btn" type="submit" value="Next" id="next">
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </input>
+                </form>
+            </div>
+        {% endif %}
+    </nav>
+    <!-- Navbar -->
+
     <!-- Content -->
     <div class="cont-main container-fluid">
         {% block content %}

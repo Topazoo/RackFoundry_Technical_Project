@@ -100,7 +100,7 @@ body {
 }
 
 .subtitle {
-    padding: 10px 0px 0px 200px;
+    padding: 10px 0px 0px 60px;
 }
 
 .sub-subtitle {
@@ -109,7 +109,40 @@ body {
 }
 
 .title {
-    padding-left: 170px;
+    padding-left: 30px;
+}
+
+.nav {
+    background-color: #cccccc;
+    padding: 0px;
+}
+
+.nav-cont {
+    padding-top: 15px;
+    cursor: pointer;
+}
+
+input#next{
+    background:none;
+    border:none;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+input#next:focus{
+    outline: none;
+}
+
+.nav-next {
+    float: right;
+}
+
+.nav-btn {
+    display: inline-block;
+    vertical-align: text-top;
+    font-size: 24px;
 }
 
 .char-info {
@@ -158,10 +191,6 @@ body {
 
 .btn-next {
     margin-left: 40px;
-}
-
-.next-btn {
-    padding-left: 6px;
 }
 
 @media (max-width:320px){
