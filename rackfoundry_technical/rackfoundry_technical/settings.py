@@ -59,7 +59,7 @@ ini = read_ini()
 
 if len(ini) == 0:
     ini['secret_key'] = os.environ.get('KEY')
-    ini['debug'] = os.environ.get('DEBUG')
+    ini['debug'] = os.environ.get('DEBUG', False)
     ini['hosts'] = ['.herokuapp.com']
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
