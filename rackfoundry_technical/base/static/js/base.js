@@ -10,3 +10,10 @@ function isNotEmpty(error_message) {
 
     return true;
 }
+
+function redirect(url) {
+    /* Redirect to a URL */
+
+    window.location.href = url;
+
+}

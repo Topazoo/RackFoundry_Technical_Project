@@ -1,6 +1,36 @@
 {% extends 'base/base.html' %}
 {% block content %}
+
+<br>
 <br>
 
-<h1>Home Placeholder</h1>
+<center>
+    <div class="home-cont">
+        <div class="col-lg-12">
+            <div class="col-lg-6">
+                <div class="card wide-card" onclick="redirect('/marvel/')">
+                    <img class="card-img-top card-img" src="http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b.jpg">
+                    <div class="card-body">
+                        <h5 class="card-text">Marvel Character Search</h5>
+                        <br>
+                        <p>Search for Marvel characters</p>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="col-lg-6">
+                <div class="card wide-card" onclick="redirect('/tickets/')">
+                    <img class="card-img-top card-img" src="https://www.sumologic.com/wp-content/uploads/2015/09/API_Design.png">
+                    <div class="card-body">
+                        <h5 class="card-text">Support Ticket API</h5>
+                        <br>
+                        <p>Enter and retrieve support tickets</p>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</center>
+
 {% endblock %}

@@ -70,6 +70,10 @@ body {
     padding-bottom: 5px;
 }
 
+.home-cont {
+    margin-left: -70px;
+}
+
 .myclose {
     margin-right: -7px;
     line-height: .1px;
@@ -122,6 +126,11 @@ body {
     cursor: pointer;
 }
 
+.navbar-container {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 input#next{
     background:none;
     border:none;
@@ -137,6 +146,17 @@ input#next:focus{
 
 .nav-next {
     float: right;
+}
+
+.wide-card {
+    width: 420px;
+}
+
+.card-img {
+    width: 400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-height: 400px;
 }
 
 .nav-btn {
