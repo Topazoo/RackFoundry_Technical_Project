@@ -34,6 +34,10 @@ def create_query_string(query, offset):
         @query - The string to search for characters with
         @offset - The number of results to exclude '''
 
+
+    # Deal with spaces in query
+    query = query.lstrip().rstrip().replace(" ", "%20")
+
     # Get Marvel API keys
     API_keys = read_ini()
 
