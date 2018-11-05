@@ -1,7 +1,6 @@
 import hashlib
 import datetime
 import os
-import sys
 
 def read_ini():
     ''' Reads the configuration file for Marvel API data'''
@@ -16,7 +15,6 @@ def read_ini():
 
                 if index == -1:
                     print "server_config.ini error - Invalid Syntax"
-                    sys.exit(1)
 
                 ini_dict[line[:index]] = line[index+1:].strip()
 
@@ -25,10 +23,9 @@ def read_ini():
         # Check errors
         if "marvel_public" not in ini_dict.keys():
             print "server_config.ini error - No Marvel public key specified"
-            sys.exit(1)
+
         if "marvel_private" not in ini_dict.keys():
             print "server_config.ini error - No Marvel private key specified"
-            sys.exit(1)
 
     return ini_dict
 
@@ -39,6 +36,10 @@ def create_query_string(query, offset):
 
     # Get Marvel API keys
     API_keys = read_ini()
+
+    if len(API_keys) == 0:
+        API_keys['marvel_public'] = os.environ.get('MARVEL_PUBLIC')
+        API_keys['marvel_private'] = os.environ.get('MARVEL_PRIVATE')
 
     # URL to be formatted
     url_template = "http://gateway.marvel.com/v1/public/characters?nameStartsWith={}&offset={}&ts={}&apikey={}&hash={}"

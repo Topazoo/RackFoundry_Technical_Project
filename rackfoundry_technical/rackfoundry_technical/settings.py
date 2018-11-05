@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-import sys
 
 def read_ini():
     ''' Reads the configuration file '''
@@ -26,7 +25,6 @@ def read_ini():
 
                 if index == -1:
                     print "server_config.ini error - Invalid Syntax"
-                    sys.exit(1)
 
                 ini_dict[line[:index]] = line[index+1:].strip()
 
@@ -35,11 +33,9 @@ def read_ini():
         # Check errors
         if "secret_key" not in ini_dict.keys():
             print "server_config.ini error - No secret key specified"
-            sys.exit(1)
 
         if "debug" not in ini_dict.keys():
             print "server_config.ini error - No debug setting specified"
-            sys.exit(1)
         else:
             if ini_dict['debug'] == 'True':
                 ini_dict['debug'] = True
@@ -47,22 +43,24 @@ def read_ini():
                 ini_dict['debug'] = False
             else:
                 print "server_config.ini error - Invalid debug setting specified"
-                sys.exit(1)
 
         if "hosts" not in ini_dict.keys():
             print "server_config.ini error - No hosts specified"
-            sys.exit(1)
         else:
             ini_dict['hosts'] = ini_dict['hosts'].split(',')
             ini_dict['hosts'] = [unicode(host) for host in ini_dict['hosts']]
 
     else:
         print "server_config.ini error - File Not Found"
-        sys.exit(1)
 
     return ini_dict
 
 ini = read_ini()
+
+if len(ini) == 0:
+    ini['secret_key'] = os.environ.get('KEY')
+    ini['debug'] = False
+    ini['hosts'] = os.environ.get('HOSTS')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
