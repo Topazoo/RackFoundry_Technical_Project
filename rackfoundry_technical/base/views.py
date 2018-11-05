@@ -134,3 +134,24 @@ def get_tickets_priority(request, priority):
         response['tickets'] = []
 
     return JsonResponse(response)
+
+
+def get_tickets_all(request):
+    ''' Get all tickets '''
+
+    response = OrderedDict()
+
+    # Get all tickets in database
+    db_tickets = Ticket.objects.all()
+
+    # If found, build and enter information in JSON format
+    if db_tickets:
+        response['code'] = 200
+        response['count'] = len(db_tickets)
+        response['tickets'] = [create_ticket_JSON(ticket) for ticket in db_tickets]
+    else:
+        response['code'] = 404
+        response['count'] = 0
+        response['tickets'] = []
+
+    return JsonResponse(response)
