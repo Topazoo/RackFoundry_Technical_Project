@@ -22,6 +22,7 @@ body {
 
 .char-img {
     max-height: 160px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19)
 }
 
 .char-text {
