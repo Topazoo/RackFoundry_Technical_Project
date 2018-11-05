@@ -23,7 +23,7 @@
 - GET /tickets/priority/<priority_level>/ return all tickets with the given priority level.
 
 ## Server Deployment
-### Starting the server:
+### Running Locally:
 
 The server can be run using <i>manage.py</i>. Note that the server requires a configuration file: <i>server_config.ini</i>
  
@@ -36,7 +36,11 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
  ```
 
-### Creating the configuration file:
+### Deploying to AWS:
+
+To deploy using AWS, pull the repository and create a configuration file with the specifications below:
+
+##### Creating the configuration file
 This file should be placed in the <b>rackfoundry_technical/</b> directory (the directory that contains 
 <i>manage.py</i>).
 
@@ -51,6 +55,12 @@ marvel_private=PRIVATE_KEY
 Where the right-hand value is your Django secret key, debug setting, comma separated host URLs (e.g. 127.0.0.1,127.0.0.2),
  marvel API public key, and Marvel API private key respectively. 
 
+
+### Deploying to Heroku:
+
+The application is already fully configured to deploy to Heroku. Simply create uppercase config variables in your Heroku app 
+for each setting found in <i>server_config.ini</i>. Note: Do not include the debug variable if you want to run the server
+ in production.
 
 ## Requirements:
 Requirements can be found in <i>requirements.txt</i>. They can be installed via pip.
